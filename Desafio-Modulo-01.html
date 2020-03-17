@@ -16,18 +16,30 @@
             <input type="text" name="bairro" placeholder="Digite o bairro" id="b">
             <input type="text" name="cidade" placeholder="Digite a cidade" id="c">
             <input type="text" name="uf" placeholder="Digite a uf" id="u">
-            <input type="button" value="Cadastrar Endereço" onclick="ce()">
+            <input type="button" value="Cadastrar Endereço" onclick="ce()"/>
         </div>
         <div class="q" id="q2">
             <h2>Questão 2</h2>
             <h3>Informe o começo e o final</h3>
             <input type="text" name="comeco" id="comeco" placeholder="Digite o valor de inico">
             <input type="text" name="final" id="final" placeholder="Digite o valor final">
-            <input type="button" value="Ver pares" onclick="verPares()">
+            <input type="button" value="Ver pares" onclick="verPares()"/>
         </div>
         <div class="q" id="q3">
             <h2>Questão 3</h2>
             <h3>Informe as hablidades</h3>
+            <input type="text" name="h1" placeholder="Digite uma habilidade" id="h1">
+            <input type="text" name="h2" placeholder="Digite uma habilidade" id="h2">
+            <input type="text" name="h3" placeholder="Digite uma habilidade" id="h3">
+            <input type="text" name="h4" placeholder="Digite uma habilidade" id="h4">
+            <input type="text" name="h5" placeholder="Digite uma habilidade" id="h5">
+            <input type="button" value="Verficar habilidades" onclick="vr()"/>
+        </div>
+        <div class="q" id="q4">
+            <h2>Questão 4</h2>
+            <h3>Informes os anos de experiencia</h3>
+            <input type="text" name="a" placeholder="Digite os anos" id="a">
+            <input type="button" value="Verficar experiencia" onclick="va()"/>
         </div>
     </div>  
     <script>
@@ -51,6 +63,11 @@
                 cidade: document.getElementById("c").value,
                 uf: document.getElementById("u").value
             };
+            document.getElementById("r").value = "";
+            document.getElementById("n").value = "";
+            document.getElementById("b").value = "";
+            document.getElementById("c").value = "";
+            document.getElementById("u").value = "";
             alert(end(ender));
         }
         //alert(end(endereco));
@@ -66,7 +83,9 @@
         }
         function verPares(){
             var x = document.getElementById("comeco").value;
+            document.getElementById("comeco").value = "";
             var y = document.getElementById("final").value;
+            document.getElementById("final").value = "";
             alert(pares(x, y));
         }
         //alert(pares(1,10));
@@ -80,6 +99,14 @@
                 }
             }
             return js;
+        }
+        function vr(){
+            var x = [];
+            for(i = 0;i < 5;i++){
+                x.push(document.getElementById("h"+(i+1)).value);
+                document.getElementById("h"+(i+1)).value = "";
+            }
+            alert(temJS(x));
         }
         //alert(temJS(s));
         //Questão 04
@@ -96,6 +123,11 @@
                 ex = "Master";
             }
             return ex;
+        }
+        function va(){
+            var a = document.getElementById("a").value;
+            var a = document.getElementById("a").value = "";
+            alert(exp(a));
         }
         //alert(exp(a));
         //Questão 05
