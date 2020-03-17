@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio</title>
+    <link rel="stylesheet" href="CSS/Estilo.css"/>
+</head>
+<body>
+    <div class="wrap">
+        <h1>Desafio</h1>
+        <div class="q" id="q1">
+            <h2>Questão 1</h2>
+            <h3>Informe o endereço</h3>
+            <input type="text" name="rua" placeholder="Digite a rua" id="r">
+            <input type="text" name="numero" placeholder="Digite o numero da casa" id="n">
+            <input type="text" name="bairro" placeholder="Digite o bairro" id="b">
+            <input type="text" name="cidade" placeholder="Digite a cidade" id="c">
+            <input type="text" name="uf" placeholder="Digite a uf" id="u">
+            <input type="button" value="Cadastrar Endereço" onclick="ce()">
+        </div>
+        <div class="q" id="q2">
+            <h2>Questão 2</h2>
+            <h3>Informe o começo e o final</h3>
+            <input type="text" name="comeco" id="comeco" placeholder="Digite o valor de inico">
+            <input type="text" name="final" id="final" placeholder="Digite o valor final">
+            <input type="button" value="Ver pares" onclick="verPares()">
+        </div>
+        <div class="q" id="q3">
+            <h2>Questão 3</h2>
+            <h3>Informe as hablidades</h3>
+        </div>
+    </div>  
+    <script>
+        //Questão 01
+        var endereco = {
+            rua: "Rua jesuania",
+            numero: 40,
+            bairro: "vasco da gama",
+            cidade: "Recife",
+            uf: "PE"
+        };
+        function end (e){
+            var x = "O ususario mora em "+e.cidade+" / "+e.uf+", no bairro "+e.bairro+" na rua "+e.rua+" com nº "+e.numero;
+            return x;
+        }
+        function ce(){
+            var ender = {
+                rua: document.getElementById("r").value,
+                numero: document.getElementById("n").value,
+                bairro: document.getElementById("b").value,
+                cidade: document.getElementById("c").value,
+                uf: document.getElementById("u").value
+            };
+            alert(end(ender));
+        }
+        //alert(end(endereco));
+        //Questão 02
+        function pares(x, y){
+            var p= [];
+            for(i = x;i <= y;i++){
+                if((i % 2) == 0){
+                    p.push(i);
+                }
+            }
+            return p;
+        }
+        function verPares(){
+            var x = document.getElementById("comeco").value;
+            var y = document.getElementById("final").value;
+            alert(pares(x, y));
+        }
+        //alert(pares(1,10));
+        //Questão 03
+        var s = ["reactJS", "JavaScript", "React Native"];
+        function temJS(skill){
+            var js = false;
+            for(i = 0;i < skill.length; i++){
+                if(skill[i] === "JavaScript"){
+                    js=true;
+                }
+            }
+            return js;
+        }
+        //alert(temJS(s));
+        //Questão 04
+        var a = 7;
+        function exp(anos){
+            var ex;
+            if(anos >= 0 && anos < 1){
+                ex = "Iniciante";
+            }else if(anos >= 1 && anos < 3){
+                ex = "Intermediario";
+            }else if(anos >= 3 && anos < 6){
+                ex = "Avançado";
+            }else if(anos >= 7){
+                ex = "Master";
+            }
+            return ex;
+        }
+        //alert(exp(a));
+        //Questão 05
+        var ususarios = [
+            {
+                nome: "Diego",
+                hab: ["JavaScript", "ReactJS", "redux"]
+            },
+            {
+                nome: "Gabriel",
+                hab: ["VueJS", "Ruby", "Elixir"]
+            }
+        ];
+        function listar(users){
+            var lista = [];
+            for(i = 0;i < users.length; i++){
+                lista.push("O/A "+users[i].nome+" possui as habilidades: "+users[i].hab);
+            }
+            return lista;
+        }
+        function exbir(l){
+            for(i = 0;i < l.length; i++){
+                alert(l[i]);
+            }
+        }
+        //exbir(listar(ususarios));
+    </script>
+</body>
+</html>
