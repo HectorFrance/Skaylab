@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="app">
+		<input type="text" name="nome" id="nome" class="nome">
+		<button class="btn">Adcionar</button>
+	</div>
+	<script type="text/javascript">
+		var inputElement = document.getElementById("nome");
+		var inputElement1 = document.getElementsByTagName("input")[0];
+		var inputElement2 = document.getElementsByClassName("input");
+		var inputElement3 = document.querySelector("body div#app input");
+		var inputElement4 = document.querySelector("input[name=nome]");
+		
+		var inputElement5 = document.querySelector("input[name=nome]");
+		var btnElement = document.querySelector("button.btn");
+		btnElement.onclick = function(){
+			var text = inputElement5.value;
+			alert(text);
+		}
+
+		console.log(inputElement);
+		console.log(inputElement1);
+		console.log(inputElement2);
+		console.log(inputElement3);
+		console.log(inputElement4);
+
+	</script>
+</body>
+</html>
