@@ -7,6 +7,7 @@
 	<div id="app">
 		<input type="text" name="nome" id="nome" class="nome">
 		<button class="btn">Adcionar</button>
+		<h1 id="h1" name="h1">Felipe</h1>
 	</div>
 	<script type="text/javascript">
 		var inputElement = document.getElementById("nome");
@@ -17,17 +18,21 @@
 		
 		var inputElement5 = document.querySelector("input[name=nome]");
 		var btnElement = document.querySelector("button.btn");
+
+		var h = document.getElementById("h1");
+
 		btnElement.onclick = function(){
 			var text = inputElement5.value;
+			inputElement5.value="71";//ALterar o texto do input
+			inputElement5.placeholder="71";//ALterar o texto do placeholder do input
+			h1.innerHTML="123123";//Aletrar o valor dos elemtnos Html
 			alert(text);
 		}
-
 		console.log(inputElement);
 		console.log(inputElement1);
 		console.log(inputElement2);
 		console.log(inputElement3);
 		console.log(inputElement4);
-
 	</script>
 </body>
 </html>
