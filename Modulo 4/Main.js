@@ -8,7 +8,7 @@ xhr.onreadystatechange = function(){
 		console.log(JSON.parse(xhr.responseText));
 	}
 }
-*/
+
 var minhaPromise = function(){
 	return new Promise(function(resolve, reject){
 		xhr2 = new XMLHttpRequest();
@@ -37,3 +37,13 @@ minhaPromise()
 .catch(function(error){
 	console.warn(error);
 })
+*/
+
+axios.get("http://api.github.com/users/hectorfrance")
+.then(function(response){
+	console.log(response.data.avatar_url);
+	console.log(response);
+})
+.catch(function(error){
+console.warn(error);
+});
