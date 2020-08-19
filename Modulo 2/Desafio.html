@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="app">
+        <button>Clique aqui</button>
+	</div>
+    <script type="text/javascript">
+        var btn = document.querySelector("#app button");
+        var div = document.querySelector("#app")
+
+        function addQuadrado(){
+            var quad = document.createElement("div");
+            quad.style.background = "red";
+            quad.style.width = "100px";
+            quad.style.height = "100px";
+            quad.setAttribute("onmouseover","passa("+this+")");
+            div.appendChild(quad);
+        }
+        btn.onclick = addQuadrado;
+
+        function passa(){
+            quad.background = "black";
+        }
+
+	</script>
+</body>
+</html>
