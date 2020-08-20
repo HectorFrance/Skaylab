@@ -6,25 +6,75 @@
 <body>
 	<div id="app">
         <button>Clique aqui</button>
+        <ul></ul>
+        <input type="text" name="nome">
+        <button onClick="adicionar()" id="adNome">Adicionar</button>
 	</div>
     <script type="text/javascript">
         var btn = document.querySelector("#app button");
-        var div = document.querySelector("#app")
+        var div = document.querySelector("#app");
+        var idQuad = 1;
 
         function addQuadrado(){
             var quad = document.createElement("div");
-            quad.style.background = "red";
+            quad.setAttribute("id", "quad"+ idQuad);
+            //alert(idQuad);
+            idQuad++;
+            //alert(idQuad);
+            var idq = quad.getAttribute("id");
+            quad.setAttribute("onmouseover", "MudaCor("+idq+")");
+             quad.setAttribute("onmouseout", "VoltarCor("+idq+")");
+            quad.style.background = "red"; 
             quad.style.width = "100px";
             quad.style.height = "100px";
-            quad.setAttribute("onmouseover","passa("+this+")");
             div.appendChild(quad);
         }
         btn.onclick = addQuadrado;
 
-        function passa(){
-            quad.background = "black";
-        }
+        function MudaCor(quad){
 
+            console.log(quad.id);
+            quad.style.backgroundColor = "black";
+        }
+        function VoltarCor(quad){
+            console.log(quad.id);
+            quad.style.backgroundColor = getRandomColor();;
+        }
+        function getRandomColor() {
+            var letters = "0123456789ABCDEF";
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+        var nomes = ["Diego", "Gabriel", "Lucas"];
+        var lista = document.querySelector("#app ul");
+
+        function listarNomes(){
+            for (nome of nomes){
+                var nomeLi = document.createElement("li");
+                var nomeText = document.createTextNode(nome);
+
+                nomeLi.appendChild(nomeText);
+                lista.appendChild(nomeLi);
+            }
+        }
+        listarNomes();
+
+        var novoNome = document.querySelector("#app input");
+        var btNome = document.querySelector("#adNome");
+
+        function adicionar(){
+            var nvNome = novoNome.value;
+            console.log(nvNome);
+            nomes.push(nvNome);
+            console.log(nomes);
+            novoNome.value = "";
+            console.log(novoNome.value);
+            lista.innerHTML = "";
+            listarNomes();
+        }
 	</script>
 </body>
 </html>
